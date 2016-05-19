@@ -3,9 +3,11 @@
 #include "ofMain.h"
 
 #include <iostream>
-#include "essentia/algorithmfactory.h"
-#include "essentia/essentiamath.h" // for the isSilent function
-#include "essentia/pool.h"
+
+//!!!
+#include <essentia/algorithmfactory.h>
+#include <essentia/essentiamath.h> // for the isSilent function
+#include <essentia/pool.h>
 
 using namespace std;
 using namespace essentia;
@@ -43,8 +45,9 @@ class ofxAudioAnalyzer
         float getOnsetFlux(){return onsetFlux_f;}
         
         bool getIsOnset(){return isOnset;}
-        
-        float* getSpectrum(){return &spectrum_f[0];}
+    
+        //!!!
+        std::vector<float> getSpectrum() { return spectrum_f; };//{return &spectrum_f[0];}
         float* getMelBands(){return &melBands_f[0];}
         float* getDct(){return &dct_f[0];}
         float* getHpcp(){return &hpcp_f[0];}
